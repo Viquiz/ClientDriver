@@ -2,13 +2,14 @@
 #define _NODE_NETWORKING_
 #include "stdint.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
-namespace ESP_NOWHELPER
+#include "Singleton/ISingleTon.h"
+#include "espnow.h"
+class ESP_NOWHELPER: public ISINGLETON<ESP_NOWHELPER>
 {
-	typedef void (*onDataCallback)(uint8_t*, uint8_t*,uint8_t);
+public:	
+	void init(esp_now_recv_cb_t onRecvCallBack,esp_now_send_cb_t onSentCallback);
 
-	
-	void init(onDataCallback onRecvCallback,onDataCallback onSentCallback);
-}
+};
 
 
 #endif

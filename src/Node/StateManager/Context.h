@@ -3,14 +3,15 @@
 
 #include "IState.h"
 #include "../Singleton/ISingleTon.h"
-
-class Context: public ISINGLETON<Context>{
+#include <ESPNOWdef.h>
+class Context:public ISTATE, public ISINGLETON<Context>{
 private:
 	ISTATE* m_CurrentState;
 public:
 	Context(){}
 	void ChangeState(ISTATE* _state);
-	void Update();
+	void Update() override;
+	void onESPNowRecv(onRecvCbParams) override;
 	
 };
 #endif
