@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Node.h"
 #include "StateManager/Context.h"
-#include "ViquizState.h"
+#include <States/States.h>
 #include "Node_networking.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
 #include <queue>
@@ -21,7 +21,7 @@ void onDataRecv(uint8_t* mac,uint8_t* data,uint8_t len)
 void setup(){
 	pinMode(2,OUTPUT);
 	ESPnow.init(onDataRecv,nullptr);
-	cxt.ChangeState(ViquizState::PAIRMODE::GetInstance());
+	cxt.ChangeState(STATES::PAIRMODE::GetInstance());
 	
 }
 

@@ -1,5 +1,6 @@
 #ifndef _ISTATE_H
 #define _ISTATE_H
+#include <ESPNOWdef.h>
 class ISTATE{
 public:
 	virtual void Update() = 0;
