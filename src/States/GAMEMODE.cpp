@@ -11,7 +11,7 @@ using namespace STATES;
 
 
 void GAMEMODE::Update(){
-
+	Serial.println("TEST");
 }
 
 
