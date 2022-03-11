@@ -4,5 +4,6 @@
 
 #include <States/PAIRMODE.h>
 #include <States/GameMode.h>
+#include <States/APMODE.h>
 
 #endif

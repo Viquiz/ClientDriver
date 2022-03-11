@@ -7,6 +7,7 @@ namespace STATES
 {
     class GAMEMODE:public ISINGLETON<GAMEMODE>, public ISTATE{
 		public:
+			void Init() override;
 			void Update() override;
 			void onESPNowRecv(onRecvCbParams) override;
 

@@ -11,6 +11,7 @@ public:
 	Context(){}
 	void ChangeState(ISTATE* _state);
 	void Update() override;
+	void Init() override;
 	void onESPNowRecv(onRecvCbParams) override;
 	
 };

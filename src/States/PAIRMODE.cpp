@@ -10,6 +10,10 @@ void PAIRMODE::Update(){
 	Serial.println("TEST");
 }
 
+void PAIRMODE::Init(){
+	
+}
+
 
 void PAIRMODE::onESPNowRecv(uint8_t* peerAddr,uint8_t* buffer,uint8_t length){
 	BasePacket* packetData = (BasePacket*)buffer;

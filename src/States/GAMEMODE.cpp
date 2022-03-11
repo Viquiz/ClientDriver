@@ -4,11 +4,14 @@
 #include "espnow.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
 #include <Adafruit_NeoPixel.h>
-
+#include <InputManager/INPUTManager.h>
 
 using namespace STATES;
 
-
+void GAMEMODE::Init()
+{
+	Viquiz::INPUTManager::GetInstance()->Init();
+}
 
 void GAMEMODE::Update(){
 	Serial.println("TEST");
