@@ -1,11 +1,12 @@
 #include <Config.hpp>
-
 #ifdef NODE
+#include <System.h>
 #include <Arduino.h>
 #include "StateManager/Context.h"
 #include <States/States.h>
 #include "Node_networking.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
+#include <IOManager/INPUTManager.h>
 Context& cxt = *Context::GetInstance();
 ESP_NOWHELPER& ESPnow = *ESP_NOWHELPER::GetInstance();
 #define WIFI_CHANNEL 0
@@ -21,7 +22,11 @@ void onDataRecv(uint8_t* mac,uint8_t* data,uint8_t len)
 
 
 void setup(){
+	Serial.begin(115200);
 	CONFIGManager::GetInstance()->LoadConfig("");
+	Viquiz::INPUTManager::GetInstance()->Init();
+	pinMode(2,OUTPUT);
+	digitalWrite(2,LOW);
 	cxt.ChangeState(STATES::GAMEMODE::GetInstance());
 	cxt.Init();
 }

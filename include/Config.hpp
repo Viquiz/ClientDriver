@@ -19,7 +19,7 @@
 
 struct CONFIG
 {
-	std::vector<uint8_t> pins;
+	uint8_t MAC_ADDRESS[6];
 };
 
 //future implementation to use config file instead hardcode

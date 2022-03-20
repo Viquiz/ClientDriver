@@ -6,6 +6,9 @@
 namespace STATES
 {
     class GAMEMODE:public ISINGLETON<GAMEMODE>, public ISTATE{
+	    	private:
+			unsigned long long time;
+			bool sended;
 		public:
 			void Init() override;
 			void Update() override;
