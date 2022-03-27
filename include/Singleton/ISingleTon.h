@@ -17,7 +17,7 @@ class ISINGLETON
 			}
 			return m_instance;
 		}
-	private:
+	protected:
 		static T* m_instance;
 
 };

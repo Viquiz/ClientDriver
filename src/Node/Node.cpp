@@ -4,20 +4,15 @@
 #include <Arduino.h>
 #include "StateManager/Context.h"
 #include <States/States.h>
-#include "Node_networking.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
 #include <IOManager/INPUTManager.h>
+#include <IOManager/OUTPUTManager.h>
+#include <Network/NETWORKManager.h>
 Context& cxt = *Context::GetInstance();
-ESP_NOWHELPER& ESPnow = *ESP_NOWHELPER::GetInstance();
-#define WIFI_CHANNEL 0
 
 
 
-void onDataRecv(uint8_t* mac,uint8_t* data,uint8_t len)
-{
-	Serial.println("message");
-	cxt.onESPNowRecv(mac,data,len);
-}
+
 
 
 
@@ -25,8 +20,8 @@ void setup(){
 	Serial.begin(115200);
 	CONFIGManager::GetInstance()->LoadConfig("");
 	Viquiz::INPUTManager::GetInstance()->Init();
-	pinMode(2,OUTPUT);
-	digitalWrite(2,LOW);
+	Viquiz::OUTPUTManager::GetInstance()->Init();
+	NETWORKManager::GetInstance()->Init();	
 	cxt.ChangeState(STATES::GAMEMODE::GetInstance());
 	cxt.Init();
 }

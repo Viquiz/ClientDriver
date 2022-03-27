@@ -3,19 +3,24 @@
 #include <States/States.h>
 #include "espnow.h"
 #include <ServerClientProtocol/ServerClientProtocol.hpp>
-
+#include <IOManager/INPUTManager.h>
+#include <IOManager/OUTPUTManager.h>
 using namespace STATES;
 
 void PAIRMODE::Update(){
-	Serial.println("TEST");
+	delay(3000);
+	Serial.println("Waiting for packet");
 }
 
 void PAIRMODE::Init(){
-	
+	Viquiz::INPUTManager::GetInstance()->Init();
+	Viquiz::OUTPUTManager::GetInstance()->Init();
 }
 
 
 void PAIRMODE::onESPNowRecv(uint8_t* peerAddr,uint8_t* buffer,uint8_t length){
+
+	Serial.println("Packet in coming");
 	BasePacket* packetData = (BasePacket*)buffer;
 	
 	if(packetData->type == packet_t::BEACON)

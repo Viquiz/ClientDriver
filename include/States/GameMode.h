@@ -3,11 +3,12 @@
 #include <StateManager/IState.h>
 #include <Singleton/ISingleTon.h>
 #include <ESPNOWdef.h>
+
 namespace STATES
 {
     class GAMEMODE:public ISINGLETON<GAMEMODE>, public ISTATE{
 	    	private:
-			unsigned long long time;
+			uint64_t time;
 			bool sended;
 		public:
 			void Init() override;
